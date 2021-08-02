@@ -1,0 +1,15 @@
+Arrays
+
+what they are?
+    - an array is a data structure used to store data and has three main properties:
+        1- these data that array stores are contiguous in memory.
+        2- arrays allow random access to the elments by simple pointer arithmatic, which make indexing done in constant
+        time.
+        3- the data in the array must share the same type.
+        
+what are they good in?
+    - as explained array are very fast in indexing elemnts so they are good if you want to access some elements by
+      index.
+
+IN GENERAL 
+            " ARRAYS ARE FAST TO READ "

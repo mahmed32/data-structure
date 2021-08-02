@@ -1,0 +1,18 @@
+Linked list:
+
+what is a linked list:
+    - a linked list is a data structure used to store "nodes" of data that are linked together 
+        1- these nodes "in general" are not contiguos in memory
+        2- each node consists of two parts one for the data itself and the other for the pointerto the next and/or
+        previous node
+        3- all the nodes share the same type data which means a node that has int can point to only node of int
+
+
+what are linked lists good in:
+    - linked lists are very fast at inserting and deleting elemnts " constant time"
+
+what is the down side:
+    - linked lists are not contiguous in memory which make them slow compaired to arrays
+    - a linked list allowcate space for pointers which make it space inifficient for large lists
+    - if the list's data value is small compaired to the size of a pointer then it is very bad to store these type in a
+      linked list
