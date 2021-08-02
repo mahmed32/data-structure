@@ -296,19 +296,4 @@ list::list(std::initializer_list<int> l)
 
     delete [] arr;
 }
-        
-
-
-#endif
-
-
-
-
-
-
-
-
-
-
-
-
+#endif        
