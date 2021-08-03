@@ -132,15 +132,11 @@ void list::erase(int index)
 
 void list::insert(int index, int value)
 {
-    if(index < 0 || index > length)
+    if(index < 0 || index >= length)
         throw "out of bound";
 
-    if(length == 0)
+    if(length == 0 || index == 0)
         push_front(value);
-    else if(index == 0)
-        push_front(value);
-    else if(index == length)
-        push_back(value);
     else
     {
         node* trav = head;
