@@ -1,0 +1,18 @@
+Stack
+
+what is a stack?
+ - a stack is an abstract data type and a linear data structure whose data elements are connected in sequintial manner.
+
+what kind of operations that supported by the stack?
+ - a stack follow special sequence of operations as LIFO (last in first out), to understand it imagine you have some
+   plates in your kitchen, these plates are of the same size and shape(same data types), the plates are putted in such a
+   way that each plate is above a plate which forms a "stack" of plates, now if you want to pick a plate in the middle
+   of the stack you MUST pop all the plates that are above it, you cannot just "slice" it that is the only plate that
+   you can use is the top plate. from this example the operations are obvious, top(), push(), pop(), empty().
+
+uses:
+    for now stacks are useful for nested structures
+
+
+examples:
+    the stack memory.
