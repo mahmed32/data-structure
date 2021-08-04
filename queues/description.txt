@@ -1,0 +1,18 @@
+Queues
+
+what is a queues?
+    A queue is a linear data structure and an abstract data type with operation FIFO,
+    means first in first out, like imagine you are going to eat in macdonalcs this weekend
+    so you decide to go at 5 pm, at this time you find that macdonalds has a line of people
+    waiting for they meals, the first person who get to the resturant is the also the first
+    person who will get out of it.
+
+where they can be used?
+    if you write a server and this server get some instruction to be performed. you can use a
+    queue here, as the instruction come you push them back the queue and execute the least
+    recent queue.
+
+the order of each operation?
+    enqueue(push to the back) O(1)
+    dequeue(pop from the front) O(1)
+    empty() O(1)
