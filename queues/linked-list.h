@@ -62,6 +62,9 @@ int list::pop_front()
     delete head;
     head = n;
 
+    if(empty())
+        tail = nullptr;
+
     return value;
 }
 
