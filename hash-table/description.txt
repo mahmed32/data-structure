@@ -1,0 +1,7 @@
+what it is?
+    a hash table is a data structure to store (key, value) data where each value has a key that is distinct from the set
+    of keys avaliable.
+    hash function: takes a key and gives an index 
+    a good hash function that is prevent more collisions.
+    linear propping is when two values has the same output from the hashfunction , just search for the next empty slot
+    and put the value in it.
