@@ -1,42 +1,61 @@
 -Hashing is a method for storing adn retieving recodrs from a database.
+
 -A record is the actual data, the operations are based on a key value.
+
 -Hashing is based on avery simple idea, but it is surprisingly difficult to implement properly.
+
 -Designeers need to pay careful attention to all of the details involved iwth ipmlementing a "hash system".
+
 -A hash system stores records in an ARRAY called a "hash table".
+
 -Hashing workds by performing a computation on a search key in a way that is intended to idnetify the position in the
 hash table contains the record with the key. The function that does this calculation is called the "hash function".
+
 -A position in the hash table is known as a "slot".The number of slots in hash table will be denoted by the variable M
 with slots numbered from 0 to M-1.
+
 -The goal for a hashing system is to arrange things such that, for any key value K and some hash function h, i = h(K) is
 a slot in the table suc that 0<=i<M, and we have the key of the recored stored at HT[i] equal to K.
 -For applicatins where all search is done by exact-match queries, hashing is the search method of choice because it is
 extremely efficient when implemented correctly.
+
 -As a simple example of hashing, consider storing n records, each with a unique key value in the range 0 to n-1. A
 record with key K can be stored in HT[K], and so the hash function is h(K)=K.To find teh record with key value K, look
 in HT[k].
+
 -In most applications, there are many more values in the key range than there are slots in the hash table. For a more
 realisitc example, suppose the key can ftake any value in the range 0 to 65535, and theat we expect to store
 approximately 1000 records at any given time. It is impractical in this situation to devise a hash function that allows
 us to store the records in amuch smaller table.By the pigoen hole principal there are more keys than slots, so there are
 at least to keys will be mapped by h to the same slot that is h(K1) = h(K2) = b where K1!=K2, then we say that K1 and K2
 have a "collision" at slot b under hash function h.
+
 -Finding a record with key K using hashing follows by two steps 
     1-calculating the table location h(K)
     2-statring with location h(K), locate the record using if necessary a "collision resolution" policy.
+
 -Another example of collision if the records are students IDs and key is the birthday of a student, that is the hash function will
 take a birthday(day in a year) and return an apropriate position in the hash table,if the number of students is 366 then
-there are at least two students share the same birthday and in tern shares the same slot in hash table.
+there are at least two students share the same birthday and in tern shares the same slot in hash table.A
+
 -Open hashing: aka separate chaining is a collision resolution policy, that allow the collieded key to be stored "out side" the hash table.
+
 -Closed hashing:aka open addressing is a collision resolution policy, that do not allow collieded key to be stored "out side" the hash
 table so it is named closed.
+
 -The simplest form of an open hashing policy is to make each slot in the table to be a head of a linked list.
+
 -Records(or data within the slot's list) can be ordered in several ways, one of them is sorted by key value order, this
 is useful because it will stop the searching if the list key is greater than the one being searched for.
+
 -Open hashing and Binsort has some similarities.
+
 -home slot aka home position: is the slot in the hash table deterimened for a given key by the hash function.
+
 -Open hashing: if record R with some key Kr happens to be there is other record stored in R's home position it is the
 work of the collision resolution policy to to determine which slot to put R in. in this case also the searcing and
 deleting operation should follow the same resolution policy.
+
 -Bucket hashing: is an implemenation for a closed hash system. if we have an array of size M we group M slots into
 Bucktes. that is the M slots are divided to B bucktes. with each Bucket consisiting of M/B slots. the hash function
 assign each key to the FIRST slot in the bucket, if there is a collision then the upcming recored will look for the
@@ -47,6 +66,7 @@ infinite. consider searching for a key if the bucket is partially full then the 
 bucket has free slots then the search is completed, else it will look for all the slots in the overflow bucket, a good
 implementaion will keep the number of records stored in the overflow bucket as small as possible. this is known is first
 bucket hash method.
+
 -An alternate approach of bucket hashing is to divide the slots into what I call them "virtual bucktes" in this case not
 the only first slot in the bucket will be the output of the hash function but will hash the key to a position in the
 array may or may not be the first in the bucket, for example if our array size is 10 and we made each bucket to be 2
@@ -55,11 +75,23 @@ bucket may or may not be the first slot in it. if there is a collisoin then we i
 searching for an empty slot, if no free slots then it will be stored in overflow bucket.
 -Probe sequence: is the sequence used to search for a key in an open hashing system. this sequence is generated by the
 "prope function".
+
 -The ideal behavior for a collision resolution mechanism is that each empty slot in the table will have equal
 probabiliy of receiving the next record insserted(assuming that every slot in the table has equal probability of being
 hashed to initially).
+
 -A better approach from linear probing is "step probing" that is p(k, i) = ci, where c is some constant, in the case IF
 M AND C ARE RELATIVLY PRIME THEN THE STEP WILL GO THROUGH ALL THE ELEMENTS IN THE TABLE.
+
 -Load factor "alpha" = N/M where N is the number of recoredes stored in the table,and M is the size of the table.
+
+-Prehashing: converting a key to nonnegative integer.
+
+-hashing: converting a nonnegative number to an address, so the sequence is prehashing -> "nonnegative integer" ->
+hashing -> address in memory. hashing is just like getting a key cut it into pieces mis them and get the magical
+address.
+
+-How to resize or "table doubling": if n gettes greater than m then make a new table of size 2m and reinsert(and rehash)
+all the old items into the new table. if n be m/4 then shrink the table size to be m/2.
 
 

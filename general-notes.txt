@@ -1,0 +1,4 @@
+Data Structures: are ways to representing information
+Asymtotic analysis: is a way of estmating the effciency of an algorithm or a computer program by its groth rate.
+Efficient solution: a solution is said to be efficient if it solves the problem within the resource constrains.
+A cost of a solution is the amount of resources that solution consumes
