@@ -1,0 +1,25 @@
+Recursion
+
+A function or algorithm is recursive if it calls itself.
+Imagine you are in cenima and one ask you which row you are in?, You don't want to think or count, so you ask the one in
+front of you which row you are in? you know the asnwer is less than the row you are in by one,
+the one in front of you do as like as you did, and ask the one in front of him which row you are in and so on .. until
+the one in the first row answers I'm in row one, then answer return back to the second row and so on until the first one
+who asked the quistion.
+
+the following is a function to get the max number in an array:
+
+int largest(int arr[], size)
+{
+    if(size == 1)
+        return arr[size-1];
+    return max(arr[size-1], largest(arr[], size-1));
+}
+
+the following is a function to return the log of a number n base b
+int log(int b, int n)
+{
+    if(n == 1)
+        return 0;
+    return log(b, n/b) + 1;
+}
