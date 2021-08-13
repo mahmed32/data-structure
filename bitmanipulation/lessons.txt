@@ -1,0 +1,73 @@
+shift left and shift right problems:
+
+
+uses of XOR operator in solving problems: what kind of problems does it solve?
+
+THE BIG XOR TRICK!
+    "if we have a sequence of XOR operations, then we can remove all pairs of 
+     duplicated values without affecting the result."
+
+1-find odd occurance of a number among even occurances.
+
+2-find the missing number in an unsorted array of numbers from 1 to n
+    - can be solved by computing n(n+1)/2 "summation formula" but may cause overflow
+    - the solution for the overflow problem is to as you iterate the right sequence
+      and then subtract the array elment. "solution found in findMissing.py"
+    - you can use XOR using the fact a^a = 0 and a^0 = a, by first create two 
+      variables the first contains the sequence from 1 to n, i.e. the right
+      sequence all XORed, and the second variable contains the array elements
+      all XORed using the fact the array is missing a number away from the 
+      right sequence. using a^b will give the right missing number.
+
+3-it can be used to implement more efficient doubly linked list by replacing next
+  and previos pointer by the XOR of them.
+
+4-find the two non-repeating elements in an array of repeating elements.
+  this is an algorithm based on xor operator. using two facts:
+    - the first is xor of two different integers will return a set of bits in which
+      when ever a bit is in one and not in the other. that is the bits not in both 
+      but in each one of the two.
+    - the second is using the idea of getting the right most bit of an integer, by
+      first subtract one to make the first one bit be zero, and then invert the set
+      to make the zero bit be one, noting that not counting if there is leading zeros
+  the algorithm is found in "findNonRepeatingTwo.py"
+
+5-Position of rightmost set bit, not here to get the position in a binary number
+  you should not divide by two. instead since each positoin has weight of 2 power n
+  where n is the postion starting from 0. to get the other way around you should take
+  the log base 2 not divide by 2.
+
+6-knowing that 1<<n will give you a number with just the n-th bit from right is set.
+
+7-to set a bit in the n-th position of num use => num | (1<<n)
+
+8-to unset a bit in the n-th postion of num use => num & ~(1<<n)
+
+9-toggling a bit in the n-th position of num use => num ^ (1<<n)
+
+10- 1's complement of a number ~(num)
+
+11- clear the first n bits from right "unset them", first thing we can think of 
+    is to have a number that has all first n bits from right = 0 and after them
+    all bits are = 1. and then ANDing it with the original number will give the
+    desiried output => num = num & ~((1<<n+1) - 1)
+
+12- 1<<n means move the one to the nth index (start from 0).
+
+13- when shifting to the left if there is a leading one it will be thrown away
+    and no longer multipling by 2.
+14- to get rid of the first set bit x & (x-1).
+
+15- you may use shiftting operators to move bits from one register to another.
+
+16- two's complment two a binary number is equal to one added to its one complment.
+
+17- arithmetic shifts: - shift left add zeros to the begining and descard the MSBs
+                       - shift right fill the MSBs with the previous bit in the MSB.
+18- logical shifts: - shift left same as arithmetic shifts left.
+                    - shift right fill MSBs with zeros.
+19- circular shift: it is obvious from its name.
+
+
+
+                        
