@@ -68,6 +68,49 @@ THE BIG XOR TRICK!
                     - shift right fill MSBs with zeros.
 19- circular shift: it is obvious from its name.
 
+20- NOT x + 1 is exactly the same as -x, assuming two's complment.
 
+21- To set or unset a bit using flag f => w = (w & ~m) | (-f & m), where m is the mask.
 
-                        
+22- first bit not set => ~x & (x + 1).
+
+23- first set bit => x & ~(x-1).
+
+24- let x = (Xw-1Xw-2.....X0) be a w-bit computer word. The UNSIGNED INTEGER value stored in x
+    is x = sumOf(Xk*2^k)from(k = 0) to (w-1).
+
+25- The signed integer (two's complement) value stored in X is
+    X = sumOf(Xk * 2^k)from(k = 0)to(w-2) - (Xw-1*2^w-1).
+
+26- WOW!! from 25 if we have ob111...1, with w 1s then if we add one to that, the answer
+    will be 10000...0 that is 1 followed by n zeros = 2^w+1, subtracting the one we added
+    we end up with 2^(w+1) - 1. Applying that to a signed binary number with all ones.
+    subtituting in 25 we get ob11111...111 = -1!!!!.
+    from this if we add x and ~x togther we git -1, because each zero will be one, adding
+    will end up with n ones, from this x + ~x = -1 => getting x to the other side:
+    -x = ~x + 1, which is the two's complment of x.
+
+26- WOW!! from 25 if we have ob111...1, with w 1s then if we add one to that, the answer
+    will be 10000...0 that is 1 followed by n zeros = 2^w+1, subtracting the one we added
+    we end up with 2^(w+1) - 1. Applying that to a signed binary number with all ones.
+    subtituting in 25 we get ob11111...111 = -1!!!!.
+    from this if we add x and ~x togther we git -1, because each zero will be one, adding
+    will end up with n ones, from this x + ~x = -1 => getting x to the other side:
+    -x = ~x + 1, which is the two's complment of x.
+
+27- to extract the bit field from a bit word =>
+
+28- set a bit field x to some value y  with and without safty check =>
+
+29- get the min of two number without if statments =>
+
+30- These bit hacks for words extend naturally to bit and word hasck for VECTORS.
+
+31- compute a mask for the first set bit from right => (~x & (x-1)) + 1 or x & -x to find the 
+    index use log base 2.
+
+33- there is some useful reference in bit hacks MIT video.
+
+34- to get the absolute value of an integer x => mask = x >> 31; return (mask^x) - mask.
+    using the fact if that mask is 0xFFF..FF then it will act exactly as not x + 1 which is 
+    the two's complment of x.
