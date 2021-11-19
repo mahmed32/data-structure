@@ -13,3 +13,51 @@ what are they good in?
 
 IN GENERAL 
             " ARRAYS ARE FAST TO READ "
+
+What are arrays?
+    An Array is a data structure not an ADT. By data structure I mean "A way of organizing data"
+    Arrays have a uniqe way of organizing or representing data.
+
+How does an Array store the data? What is the underlying structure of this data structure?
+    An Array store the data in memory in consecutie manner. from this each element in the array
+    has some kind of nighbor element if it is not the last or the first element. each element in
+    the Array IS IN THE SAME SIZE AS THE OTHER ELEMENT. which means the total memory size that
+    an Array take is N * sizeof(elment) where N is the number of elements in the Array.
+    An array is by default a STATIC which means once it is initialized by a certin size, this size
+    can not be changed after. this put some limitation if you don't know the size of your data
+    befor initialzing the Array. Since the elments are consicutive and size of each element is known
+    to get the ith elment in the array you simply move from the first element i * sizeof(element)
+    which makes the Array very fast in accessing operations (set_value, get_value) which takes constant time
+    indpendent of the size of the Array.
+
+When to use?
+    From the above description the initiazlation of Array will take time proportional to its size
+    which is quite normal in initializtion. But the most reason that makes you use an Array is 
+    the constant accessing time. If you need to set or get values very fast An array is perfect.
+    
+    Arrays are cache friendly because the likeloohd of cache hit is very large. since the elements
+    are stored consecutivly.
+
+When to not use?
+    Arrays are not flixable when the size might vary in other words if the size must be changed
+    a whole new Array must be alocated with bigger size and the old elemnts must be copied one by
+    one to the new Array. This will take time proportaional to the old Array size.
+
+    Inserting and deleteing elements are not efficint in Array because in the worst case you might
+    need to delete/insert an element to the begining of the Array you have to cases if the array is
+    not full you have to shift all the elments left/right to make a room for the new element This case
+    will take time proportional to the size of the Array. The second case is when the array is full
+    again a whole new Array must be allocated and the new elements are copied one by one to the
+    new Array also takes O(N) at run time.
+    
+    Searching for an element in an Array requires traversing each element and check if it is the 
+    target value so if your algorithm does alot of search an Array might not be good for you
+
+What are the basic operations and their run time?
+    init(size)               O(size)
+    get(index)               O(1)
+    set(index, value)        O(1)
+    insert(index, value)     O(size)
+    delete(index)            O(size)
+    search(target)           O(size)
+    
