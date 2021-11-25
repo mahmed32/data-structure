@@ -1,25 +1,129 @@
 GENERAL TREES:
 
 WHAT IS A TREE?
+
+- A tree is a collection of nodes connected to each other by a link. A tree is non-linear data structure
+  which means I don't care about the order you but the data in the tree. what is I care about is a key
+  representing those data not the order of the data stored. We can't go to a node by to paths
+  A path is just jumping from one node to another by a link. So no node can have two links points to
+  another node. So in general A node is either a parent or child or both. a parent node is a node
+  that has a link to another node. A child node is a node that can be reached via a link from its parent node
+  the relation between A partent node and a child node is 1 -> N. each child has 1 and only 1 parent
+  A node can be both a Child and a parent in the same time , if it has a link to another node and can be refrenced
+  by its parent Such a node is called INTERNAL NODE. There is only one node that is parent and not child
+  which we call it the ROOT of the tree. There is no node has a pointer to the root. and the root has pointers to
+  its children. if A node is only a child node it is called a LEAF NODE.
+
 WHAT IS A TREE'S ROOT?
+
+- Is the only node with no parents
+
 WHAT IS A NODE?
+
+- A node is just a structure that has some sort of data in interest for example may be an integer
+  or strings or may be a class defined by you. And also has pointer to another nodes.
+
 WHAT IS A NODE'S PERANT?
+
+- If I'm the node then my parent is the node that contains the link that points to me.
+
 WHAT IS a NODE'S CHILDS?
+
+- Are the nodes that my node's pointers point to. maybe point to null.which means have no children
+  that is a leaf node.
+
 WHAT IS A NODE'S HEIGHT?
+
+- In Computer Science Trees are upside down of real trees so the height of a real tree is
+  the hight units from the groun up to certain branch. But in computer science the height by the same
+  analogy is the largest number of height units that can be reached by following a path from the node
+  to a leaf node. the height unit is edge.
+- Mathy def: The height of a node is the longest path that can be taken from the node to a leaf node.
+  with the height unit as the edge.
+- form this the height of a leaf is 0.
+- and the height of a null node is -1.
+
 WHAT IS A NODE'S DEPTH?
+
+- In contrast to the height, the depth of a node is the number of edges from the root to the node in question.
+- the depth of the root is 0.
+- the max depth is the height of the tree
+- the height of the tree is the number of edges from the longest path from the root to a leaf
+- the max depth is the depth of the most far away leaf node from the root which is the same as the depth of it
+- hence max depth = height of tree.
+
 WHAT IS THE TREE'S HEIGHT?
-WHAT IS THE TREE'S DEPTH?
+
+- is the height of the root.
+
+WHAT IS THE TREE'S MAX DEPTH?
+
+- Is the height of the tree or in other words the height of the root node
+
 WHAT IS A NODE'S LEVEL?
-WHAT IS THE TREE LEVEL?
+
+- is its depth + 1
+
+WHAT IS THE TREE MAX LEVEL?
+
+- max depth + 1
+
 HOW TO VISIT A NODE IN A TREE?
+
+- By traversing the nodes we have two methodes fo traversing nodes in the tree:
+ 1- Breadth first search:
+     - In this technique we process all nodes level by level begining from the root going down
+       to the level.
+       Algorithm:
+
+       Begin by inialize a queue with the root node
+       loop unitl the queue becomes empty:
+            element <- get the front from the queue
+            if element is desired: break
+            push to the queue all element's children from left to right if exists
+ 2- Depth first search:
+     - In this techniqe we process the nodes by going along the way to the depth of the tree
+       process all the elements that in the way. we have 3 methods
+        1- pre-order : self -> left -> right
+        2- post-order: left -> right -> self
+        3- inorder   : left -> self -> right
+        Algorithm:
+        trivial with recurerion.
+
 HOW MANY EDGES IN A TREE WITH n NODES?
+
+- n-1 edges, Because each node has an edge points to it execpt the root
+
 WHAT IS THE MAX DEPTH OF A TREE?
 
+- is the height of the root
+
 BINARY TREES:
+
 WHAT IS COMPLETE TREE?
+
+- Is Binary tree with all intermidate levels are filled with nodes. but the last level is partially filled
+  and must be filled from left to right.
+
 WHAT IS A PERFECT TREE?
-WHAT IS THE MAX NUMBER OF NODES IN A TREE WITH HEIGHT h?
+
+- Is A complete binary tree with all levels are full of nodes
+
+WHAT IS THE MAX NUMBER OF NODES IN A binary TREE WITH HEIGHT h?
+
+- Each level has 2^(level - 1) nodes. the max level is max depth + 1 hence
+  the number of nodes will be 2^(0) + 2^(1) + ... + 2^(max depth). the 
+  height of a tree is just the max depth.So we get a #nodes = 2^(0) + 2^(1) + ... + 2^(h) =
+
+                                 2^(h+1) - 1
+
+- So if given the number of nodes in a binary tree and asking for the minimum height then 
+
+                             min_h = lg(n+1) - 1 
+
 WHAT IS THE CONDITION OF A BALANCED BINARY TREE?
 
+- the absolute value of the difference between a node's children must be at most k
 
+                         |H(n.left) - H(n.right)| <= k
 
